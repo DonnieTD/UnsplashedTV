@@ -2,14 +2,7 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import { Layout } from "./index";
 import { QueryClient, QueryClientProvider } from "react-query";
-import nock from "nock";
-import { PhotosTestData, TopicsTestData } from "../../testdata";
-
 const queryClient = new QueryClient();
-
-const expectation = nock("https://api.unsplash.com/")
-  .get("/topics")
-  .reply(200, TopicsTestData);
 
 test("Sidebar shows up", async () => {
   render(

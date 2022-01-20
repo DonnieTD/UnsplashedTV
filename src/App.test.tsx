@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient();
 
-test("renders learn react link", async () => {
+test("Asks initially for you to pick a topic", async () => {
   render(
     <QueryClientProvider client={queryClient}>
       <App />
