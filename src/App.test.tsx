@@ -1,9 +1,18 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen, waitFor } from "@testing-library/react";
+import App from "./App";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+const queryClient = new QueryClient();
+
+test("renders learn react link", async () => {
+  render(
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+  );
+
+  const linkElement = screen.getByText(/Please select a topic/i);
+  await waitFor(() => expect(linkElement).toBeTruthy());
   expect(linkElement).toBeInTheDocument();
 });
