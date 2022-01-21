@@ -13,6 +13,8 @@ export const Navitem: React.FC<{
       alignItems="center"
       mb="2"
       mt="2"
+      ml="2"
+      mr="2"
       p="2"
       _hover={{
         background: "#666",
