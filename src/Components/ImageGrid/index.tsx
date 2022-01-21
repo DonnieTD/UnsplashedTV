@@ -9,7 +9,7 @@ export const ImageGrid: React.FC<{ topic: string | null }> = ({ topic }) => {
   const [displayed, setDisplayed] = React.useState([]);
   const [cursor, setCursor] = React.useState(0);
 
-  const { data, isLoading } = useQuery({
+  const { isLoading } = useQuery({
     enabled: topic !== null,
     queryKey: `${topic}/photos`,
     queryFn: () =>
@@ -61,6 +61,7 @@ export const ImageGrid: React.FC<{ topic: string | null }> = ({ topic }) => {
               key={x?.urls.raw}
               src={x?.urls.raw + "&fit=crop&crop=entropy&w=650&h=400&dpr=1"}
               maxW="100%"
+              minW="100%"
             />
           ) : (
             ""
@@ -72,6 +73,7 @@ export const ImageGrid: React.FC<{ topic: string | null }> = ({ topic }) => {
               key={x?.urls.raw}
               src={x?.urls.raw + "&fit=crop&crop=entropy&w=650&h=400&dpr=1"}
               maxW="100%"
+              minW="100%"
             />
           ) : (
             ""
@@ -80,7 +82,7 @@ export const ImageGrid: React.FC<{ topic: string | null }> = ({ topic }) => {
       </Grid>
       <Center position="relative" top="4vh">
         <AiFillLeftCircle
-          fontSize={40}
+          fontSize="4vh"
           onClick={() => {
             if (cursor !== 0) {
               setCursor(cursor - 2);
@@ -88,7 +90,7 @@ export const ImageGrid: React.FC<{ topic: string | null }> = ({ topic }) => {
           }}
         />
         <AiFillRightCircle
-          fontSize={40}
+          fontSize="4vh"
           onClick={() => {
             if (cursor + 2 < images.length) {
               setCursor(cursor + 2);
