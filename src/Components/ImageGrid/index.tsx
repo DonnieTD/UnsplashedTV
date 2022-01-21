@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Grid, Heading, Image } from "@chakra-ui/react";
+import { Center, Grid, Heading, Image } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
@@ -58,6 +58,7 @@ export const ImageGrid: React.FC<{ topic: string | null }> = ({ topic }) => {
         {displayed.map((x: any, i: number) =>
           i % 2 !== 0 ? (
             <Image
+              data-testid={`grid_image_${i}`}
               key={x?.urls.raw}
               src={x?.urls.raw + "&fit=crop&crop=entropy&w=650&h=400&dpr=1"}
               maxW="100%"
@@ -70,6 +71,7 @@ export const ImageGrid: React.FC<{ topic: string | null }> = ({ topic }) => {
         {displayed.map((x: any, i: number) =>
           i % 2 === 0 ? (
             <Image
+              data-testid={`grid_image_${i}`}
               key={x?.urls.raw}
               src={x?.urls.raw + "&fit=crop&crop=entropy&w=650&h=400&dpr=1"}
               maxW="100%"

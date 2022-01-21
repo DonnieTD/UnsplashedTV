@@ -78,6 +78,7 @@ export const Navbar: React.FC<{
           </Box>
           {data?.data.map((x: any) => (
             <Navitem
+              key={x?.slug}
               slug={x?.slug}
               url={x?.cover_photo.urls.raw}
               onClick={() => setTopic(x?.slug)}

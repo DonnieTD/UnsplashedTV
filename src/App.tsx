@@ -1,7 +1,6 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { Box, Grid } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Navbar } from "./Components/Navbar";
 import { ImageGrid } from "./Components/ImageGrid";
 
