@@ -1,19 +1,18 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import App from "./App";
-import { QueryClient, QueryClientProvider } from "react-query";
 import axios from "axios";
+import { Navbar } from ".";
+import { QueryClient, QueryClientProvider } from "react-query";
 axios.defaults.adapter = require("axios/lib/adapters/http");
 axios.defaults.baseURL = "https://api.unsplash.com/";
 
-test("Asks to select a topic", () => {
+test("Title renders on navbar", () => {
   const client = new QueryClient();
-
   render(
     <QueryClientProvider client={client}>
-      <App />
+      <Navbar setTopic={() => {}} />
     </QueryClientProvider>
   );
-  const linkElement = screen.getByText(/Please select a topic/i);
+  const linkElement = screen.getByText(/Unsplash TV/i);
   expect(linkElement).toBeInTheDocument();
 });
