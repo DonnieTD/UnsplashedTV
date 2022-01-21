@@ -7,7 +7,13 @@ axios.defaults.adapter = require("axios/lib/adapters/http");
 axios.defaults.baseURL = "https://api.unsplash.com/";
 
 test("Asks to select a topic", () => {
-  const client = new QueryClient();
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+    },
+  });
 
   render(
     <QueryClientProvider client={client}>

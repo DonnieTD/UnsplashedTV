@@ -7,7 +7,14 @@ axios.defaults.adapter = require("axios/lib/adapters/http");
 axios.defaults.baseURL = "https://api.unsplash.com/";
 
 test("Title renders on navbar", () => {
-  const client = new QueryClient();
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+    },
+  });
+
   render(
     <QueryClientProvider client={client}>
       <Navbar setTopic={() => {}} />

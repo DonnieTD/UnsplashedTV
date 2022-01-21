@@ -14,7 +14,13 @@ setLogger({
 });
 
 test("Asks to select a topic", () => {
-  const client = new QueryClient();
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+    },
+  });
 
   render(
     <QueryClientProvider client={client}>
