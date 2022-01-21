@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "./App";
 import { QueryClient, QueryClientProvider } from "react-query";
 import axios from "axios";
